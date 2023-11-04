@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'bmi_calculator_page.dart'; // Impor halaman perhitungan BMI
 
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Selamat Datang'),
-      ),
+      backgroundColor: Color.fromARGB(255, 226, 212, 212),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -29,63 +28,180 @@ class WelcomePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  // Search Bar
                   Container(
-                    color: Colors.blue, // Warna latar belakang untuk List 1
+                    margin: EdgeInsets.all(16.0),
                     padding: EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white, // Warna latar belakang untuk Search Bar
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Cari informasi gizi',
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                  // List 1
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    margin: EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          'Index Masa Tubuh',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white, // Warna teks putih
+                        Container(
+                          padding: EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Index Masa Tubuh',
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                'Ketahui status gizimu melalui perbandingan berat dan tinggi badan',
+                                style: TextStyle(color: Colors.green, fontSize: 12),
+                              ),
+                              SizedBox(height: 16.0),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => BMICalculatorPage()),
+                                  );
+                                },
+                                child: Text('Cek Sekarang'),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                                  foregroundColor: MaterialStateProperty.all(Colors.blue),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                  ),
+                                  padding: MaterialStateProperty.all(
+                                    EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        Text('Ketahui status gizimu melalui perbandingan berat dan tinggi badan', style: TextStyle(color: Colors.green, fontSize: 10)),
-                        Text('Item 2', style: TextStyle(color: Colors.white)),
-                        Text('Item 3', style: TextStyle(color: Colors.white)),
                       ],
                     ),
                   ),
+                  // List 2
                   Container(
-                    color: Colors.green, // Warna latar belakang untuk List 2
-                    padding: EdgeInsets.all(16.0),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    margin: EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          'List 2',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white, // Warna teks putih
+                        Container(
+                          padding: EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Kebutuhan Energi',
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                'Ketahui kebutuhan energi yang dibutuhkan tubuhmu untuk menjalankan fungsi fisiologis tubuh',
+                                style: TextStyle(color: Colors.green, fontSize: 12),
+                              ),
+                              SizedBox(height: 16.0),
+                              ElevatedButton(
+                                onPressed: () {
+                                  // Tambahkan logika yang sesuai di sini
+                                },
+                                child: Text('Cek Sekarang'),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                                  foregroundColor: MaterialStateProperty.all(Colors.red),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                  ),
+                                  padding: MaterialStateProperty.all(
+                                    EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        Text('Item 1', style: TextStyle(color: Colors.white)),
-                        Text('Item 2', style: TextStyle(color: Colors.white)),
-                        Text('Item 3', style: TextStyle(color: Colors.white)),
                       ],
                     ),
                   ),
+                  // List 3
                   Container(
-                    color: Colors.orange, // Warna latar belakang untuk List 3
-                    padding: EdgeInsets.all(16.0),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.brown,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    margin: EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          'List 3',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white, // Warna teks putih
+                        Container(
+                          padding: EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Energi Expenditure',
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                'Ketahui kebutuhan energi yang dibutuhkan tubuhmu untuk mempertahankan kehidupan',
+                                style: TextStyle(color: Colors.green, fontSize: 12),
+                              ),
+                              SizedBox(height: 16.0),
+                              ElevatedButton(
+                                onPressed: () {
+                                  // Tambahkan logika yang sesuai di sini
+                                },
+                                child: Text('Cek Sekarang'),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                                  foregroundColor: MaterialStateProperty.all(Colors.brown),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                  ),
+                                  padding: MaterialStateProperty.all(
+                                    EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        Text('Item 1', style: TextStyle(color: Colors.white)),
-                        Text('Item 2', style: TextStyle(color: Colors.white)),
-                        Text('Item 3', style: TextStyle(color: Colors.white)),
                       ],
                     ),
                   ),

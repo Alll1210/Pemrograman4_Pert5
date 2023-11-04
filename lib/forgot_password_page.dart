@@ -4,9 +4,6 @@ class ForgotPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Lupa Sandi'),
-      ),
       body: ForgotPasswordForm(),
     );
   }
